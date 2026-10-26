@@ -1,0 +1,160 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    background-color: white;
+}
+
+.encabezado {
+    background-color: #061438;
+    border-top: 20px solid #f2a000;
+    height: 244px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+.titulo {
+    background-color: #eef1f6;
+    text-align: center;
+    padding: 12px;
+}
+
+.titulo h1 {
+    color: #08799b;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.linea {
+    background-color: #c90008;
+    width: 62px;
+    height: 5px;
+    margin: 12px auto 0;
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 96%;
+    margin: 25px auto;
+    border: 2px solid #08799b;
+    border-radius: 10px;
+    padding: 10px 15px 60px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #e99a00;
+    font-size: 24px;
+    margin: 0 0 30px;
+}
+
+.descripcion {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 45px;
+}
+
+.columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.elementos {
+    width: 100%;
+    padding: 10px;
+}
+
+.elementoformulario {
+    height: 41px;
+    border-radius: 5px;
+    border: 1px solid #d0d0d0;
+    background-color: white;
+    color: #061438;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+.elementoformulario:focus {
+    outline: 2px solid #08799b;
+    border-color: #08799b;
+}
+
+.elementoformulario::placeholder {
+    color: #666;
+    opacity: 1;
+}
+select.elementoformulario {
+    cursor: pointer;
+}
+.tipo_persona {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 5px 8px;
+    color: #777;
+}
+
+.tipo_persona label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.persona {
+    accent-color: #111;
+    cursor: pointer;
+}
+
+.btn_validar {
+    display: block;
+    width: calc(50% - 14px);
+    margin-top: 58px;
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    background-color: #c90008;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn_validar:hover {
+    background-color: #a80006;
+}
+
+
+.pie {
+    background-color: #061438;
+    color: white;
+    text-align: center;
+    padding: 30px 10px 60px;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 39px;
+}

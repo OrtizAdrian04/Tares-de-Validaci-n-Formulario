@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 4 - Validacion Formulario con JavaScript</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo_cabecera.png" alt="Caja La Sagrada Familia">
+        </div>
+    </header>
+
+    <section class="titulo">
+        <h1>DÉJANOS CONOCERTE</h1>
+        <div class="linea"></div>
+    </section>
+  
+    <main class="contenedor">
+
+        <h2 class="subtitulo">¡Compártenos tu información!</h2>
+
+        <p class="descripcion">
+            Déjanos tus datos personales y nosotros nos comunicaremos
+            contigo lo más pronto posible.
+        </p>
+
+        <form action="guardar.php" method="get"
+              name="formulariovalidacion"
+              id="formulariovalidacion">
+
+            <div class="columnas">
+
+                <div class="columna">
+
+                    <input type="text"
+                           class="elementos elementoformulario"
+                           name="nombre"
+                           id="nombrecompleto"
+                           placeholder="Nombre Completo *">
+
+                    <input type="email"
+                           class="elementos elementoformulario"
+                           name="email"
+                           id="emailcompleto"
+                           placeholder="Correo Electronico *">
+
+                    <input type="tel"
+                           class="elementos elementoformulario"
+                           name="celular"
+                           id="celular"
+                           placeholder="Celular *">
+
+                    <input type="text"
+                           class="elementos elementoformulario"
+                           name="ciudad"
+                           id="ciudad"
+                           placeholder="Ciudad">
+
+                    <input type="text"
+                           class="elementos elementoformulario"
+                           name="localidad"
+                           id="localidad"
+                           placeholder="Localidad">
+
+                </div>
+
+                <div class="columna">
+
+                    <input type="text"
+                           class="elementos elementoformulario"
+                           name="estado"
+                           id="estado"
+                           placeholder="Estado">
+
+                    <input type="text"
+                           class="elementos elementoformulario"
+                           name="colonia"
+                           id="colonia"
+                           placeholder="Colonia">
+
+                    <select class="elementos elementoformulario"
+                            name="area"
+                            id="area">
+
+                        <option value="" disabled selected>
+                            Elige tu área de interes *
+                        </option>
+
+                        <option value="Cajas">Cajas</option>
+                        <option value="Servicios">Servicios</option>
+                        <option value="Asesoramiento Financiero">
+                            Asesoramiento Financiero
+                        </option>
+                        <option value="Gestoría y Cobranza">
+                            Gestoría y Cobranza
+                        </option>
+                        <option value="Crédito">Crédito</option>
+                        <option value="Jurídico">Jurídico</option>
+                        <option value="Archivo">Archivo</option>
+                        <option value="Mercadotecnia">Mercadotecnia</option>
+                        <option value="Diligencias">Diligencias</option>
+                        <option value="Compras">Compras</option>
+                        <option value="Intendencia">Intendencia</option>
+                        <option value="Auditoría">Auditoría</option>
+                        <option value="Capital Humano">Capital Humano</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Sistemas">Sistemas</option>
+                        <option value="Contabilidad">Contabilidad</option>
+                        <option value="Administración">Administración</option>
+
+                    </select>
+
+                    <div class="tipo_persona">
+
+                        <label>
+                            <input type="radio"
+                                   name="tipo_persona"
+                                   value="Persona Física"
+                                   class="persona"
+                                   id="fisica"
+                                   checked>
+                            Persona Física
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="tipo_persona"
+                                   value="Persona Moral"
+                                   class="persona"
+                                   id="moral">
+                            Persona Moral
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="button"
+                    class="btn_validar"
+                    id="btn_validar">
+                Enviar
+            </button>
+
+        </form>
+
+    </main>
+
+    <footer class="pie">
+        <p>Jhasef Adrian Ortiz Hau</p>
+        <p>7SB</p>
+        <p>Programación Web</p>
+    </footer>
+
+    <script>
+
+        $("#btn_validar").click(function() {
+
+            if ($("#nombrecompleto").val().trim() == '') {
+                alert("No escribiste tu nombre completo");
+                $("#nombrecompleto").focus();
+                return false;
+            }
+
+            if ($("#emailcompleto").val().trim() == '') {
+                alert("No escribiste tu correo electrónico");
+                $("#emailcompleto").focus();
+                return false;
+            }
+
+            let expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!expresionCorreo.test($("#emailcompleto").val().trim())) {
+                alert("Escribe un correo electrónico válido");
+                $("#emailcompleto").focus();
+                return false;
+            }
+
+            if ($("#celular").val().trim() == '') {
+                alert("No escribiste tu número de celular");
+                $("#celular").focus();
+                return false;
+            }
+
+            let expresionCelular = /^[0-9]{10}$/;
+
+            if (!expresionCelular.test($("#celular").val().trim())) {
+                alert("El celular debe contener exactamente 10 dígitos");
+                $("#celular").focus();
+                return false;
+            }
+
+            if ($("#area").val() == null || $("#area").val() == '') {
+                alert("Debes elegir un área de interés");
+                $("#area").focus();
+                return false;
+            }
+
+            if (!$(".persona").is(":checked")) {
+                alert("Debes seleccionar el tipo de persona");
+                $(".persona").first().focus();
+                return false;
+            }
+
+            document.formulariovalidacion.submit();
+
+        });
+
+    </script>
+
+</body>
+</html>
